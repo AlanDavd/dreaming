@@ -38,7 +38,7 @@ class UserViewSet(mixins.RetrieveModelMixin,
 
     def get_permissions(self):
         """Assign permissions based on action."""
-        if self.action in ['signup', 'login', 'verify']:
+        if self.action in ['signup', 'login']:
             permissions = [AllowAny]
         elif self.action in ['retrieve', 'update', 'partial_update', 'profile']:
             permissions = [IsAuthenticated, IsAccountOwner]
