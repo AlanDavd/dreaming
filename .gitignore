@@ -270,3 +270,7 @@ dreaming/media/
 .env
 .envs/*
 !.envs/.local/
+
+# IDE
+.idea
+.idea/
