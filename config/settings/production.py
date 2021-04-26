@@ -2,9 +2,6 @@
 
 from .base import *  # NOQA
 from .base import env
-import django_heroku
-
-django_heroku.settings(locals())
 
 # Base
 SECRET_KEY = env('DJANGO_SECRET_KEY')
