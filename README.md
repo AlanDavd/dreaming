@@ -15,6 +15,7 @@ Add static folder
 
 ```bash
 $ mkdir dreaming/static
+$ sudo docker-compose -f production.yml run --rm django python manage.py collectstatic
 ```
 
 ## Contributors
