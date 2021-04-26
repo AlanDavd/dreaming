@@ -16,8 +16,8 @@ services:
       - redis
     env_file:
       - ./.env
-    networks:
-      - nginx_network
+    # networks:
+    #   - nginx_network
     command: /start
 
   postgres:
@@ -41,8 +41,8 @@ services:
     ports:
       - "0.0.0.0:80:80"
       - "0.0.0.0:443:443"
-    networks:
-      - nginx_network
+    # networks:
+    #   - nginx_network
 
   redis:
     image: redis:6.2
@@ -63,7 +63,6 @@ services:
     ports:
       - "5555:5555"
     command: /start-flower
-
-networks:
-  nginx_network:
-    driver: bridge
+# networks:
+#   nginx_network:
+#     driver: bridge
