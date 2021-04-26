@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 volumes:
   production_postgres_data: {}
@@ -36,13 +36,13 @@ services:
     image: dreaming_production_nginx
     depends_on:
       - django
-    volumes:
-      - production_nginx:/root/nginx.conf
-    env_file:
-      - ./.env
     ports:
       - "0.0.0.0:80:80"
       - "0.0.0.0:443:443"
+    networks:
+      main:
+        aliases:
+          - nginx
 
   redis:
     image: redis:6.2
@@ -63,3 +63,6 @@ services:
     ports:
       - "5555:5555"
     command: /start-flower
+
+networks:
+  main:
