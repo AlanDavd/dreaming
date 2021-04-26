@@ -8,6 +8,15 @@ If you don't want to do so, just run:
 docker-compose -f local.yml build
 docker-compose -f local.yml up
 ```
+
+## Production
+
+Add static folder
+
+```bash
+$ mkdir dreaming/static
+```
+
 ## Contributors
 
 - [Alan David](https://github.com/AlanDavd)
