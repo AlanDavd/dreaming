@@ -3,6 +3,7 @@ version: "3"
 volumes:
   production_postgres_data: {}
   production_postgres_data_backups: {}
+  production_caddy: {}
 
 services:
   django: &django
@@ -28,15 +29,20 @@ services:
     env_file:
       - ./.env
 
-  nginx:
+  caddy:
     build:
       context: .
-      dockerfile: ./compose/production/nginx/Dockerfile
-    image: dreaming_production_nginx
+      dockerfile: ./compose/production/caddy/Dockerfile
+    image: dreaming_production_caddy
     depends_on:
       - django
+    volumes:
+      - production_caddy:/root/.caddy
+    env_file:
+      - ./.env
     ports:
-      - "8000:80"
+      - "0.0.0.0:80:80"
+      - "0.0.0.0:443:443"
 
   redis:
     image: redis:6.2
